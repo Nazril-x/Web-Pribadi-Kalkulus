@@ -1,0 +1,196 @@
+<index.html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Nazril Iqbal Arashid - Web Pribadi</title>
+  <style>
+    /* Global Style */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #004aad, #0077ff);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    nav {
+      background: #00337a;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease;
+    }
+    .profile-img {
+      width: 150px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 20px;
+      transition: transform 0.3s;
+    }
+    .profile-img:hover {
+      transform: scale(1.1);
+    }
+    h2 {
+      color: #004aad;
+      border-left: 5px solid #004aad;
+      padding-left: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #f0f0f0;
+      width: 30%;
+    }
+    ul {
+      list-style: square inside;
+    }
+    footer {
+      background: #00337a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+    footer p {
+      margin: 0;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+      .container {
+        padding: 15px;
+      }
+      table, th, td {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Muhammad Nazril Iqbal Arashid</h1>
+    <p>Mahasiswa Prodi Teknik Informatika - Universitas Wahid Hashim (Unwahas)</p>
+  </header>
+
+  <nav>
+    <a href="#profil">Profil</a>
+    <a href="#pendidikan">Pendidikan</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <div class="container" id="profil">
+    <img src="foto.jpg" alt="Foto Profil" class="profile-img">
+    <h2>Profil</h2>
+    <p>Halo, nama saya <b>Muhammad Nazril Iqbal Arashid</b>.  
+    Saya mahasiswa <b>Prodi Teknik Informatika</b> di <b>Universitas Wahid Hashim (Unwahas)</b>.  
+    Website ini saya buat sebagai tugas perkuliahan untuk memperkenalkan diri.</p>
+
+    <h3>Biodata Pribadi</h3>
+    <table>
+      <tr>
+        <th>Nama Lengkap</th>
+        <td>Muhammad Nazril Iqbal Arashid</td>
+      </tr>
+      <tr>
+        <th>Tempat, Tanggal Lahir</th>
+        <td>[Isi Tempat, 01 Januari 200X]</td>
+      </tr>
+      <tr>
+        <th>Alamat</th>
+        <td>[Alamat Lengkap]</td>
+      </tr>
+      <tr>
+        <th>Program Studi</th>
+        <td>Teknik Informatika - Universitas Wahid Hashim (Unwahas)</td>
+      </tr>
+      <tr>
+        <th>Hobi</th>
+        <td>[Contoh: Membaca, Coding, Futsal]</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="container" id="pendidikan">
+    <h2>Pendidikan</h2>
+    <ul>
+      <li>SD Negeri [Nama Sekolah] (2009 - 2015)</li>
+      <li>SMP Negeri [Nama Sekolah] (2015 - 2018)</li>
+      <li>SMA Negeri [Nama Sekolah] (2018 - 2021)</li>
+      <li>Saat ini: S1 Teknik Informatika - Universitas Wahid Hashim (Unwahas)</li>
+    </ul>
+  </div>
+
+  <div class="container" id="kontak">
+    <h2>Kontak</h2>
+    <p>Email: <a href="mailto:nazril.iqbal@gmail.com">nazril.iqbal@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/nazriliqbal" target="_blank">@nazriliqbal</a></p>
+    <p>WhatsApp: <a href="https://wa.me/628xxxxxxxxxx" target="_blank">+62 8xx-xxxx-xxxx</a></p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 | Web Pribadi Muhammad Nazril Iqbal Arashid - Informatika Unwahas</p>
+  </footer>
+
+</body>
+</html>
