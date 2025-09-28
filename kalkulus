@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Pribadi - Muhammad Nazril Iqbal Arashid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #004aad, #0077ff);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background: #00337a;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #004aad;
+      border-left: 5px solid #004aad;
+      padding-left: 10px;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px 0;
+    }
+    footer {
+      background: #00337a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Muhammad Nazril Iqbal Arashid</h1>
+    <p>Prodi Teknik Informatika - Universitas Wahid Hashim (Unwahas)</p>
+  </header>
+
+  <nav>
+    <a href="#profil">Profil</a>
+    <a href="#sistem-bilangan">Sistem Bilangan</a>
+    <a href="#kalkulus">Kalkulus</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <!-- Profil -->
+  <div class="container" id="profil">
+    <h2>Profil</h2>
+    <p>Halo, saya <b>Muhammad Nazril Iqbal Arashid</b>, mahasiswa Teknik Informatika di Universitas Wahid Hashim (Unwahas). 
+    Web ini dibuat untuk memenuhi tugas perkuliahan pemrograman web, berisi profil, materi sistem bilangan, dan kalkulus.</p>
+  </div>
+
+  <!-- Sistem Bilangan -->
+  <div class="container" id="sistem-bilangan">
+    <h2>Sistem Bilangan</h2>
+    <p>Sistem bilangan adalah cara untuk merepresentasikan angka. Beberapa jenis yang umum digunakan:</p>
+    <ul>
+      <li><b>Biner (base 2)</b>: hanya menggunakan angka 0 dan 1.</li>
+      <li><b>Desimal (base 10)</b>: menggunakan angka 0–9.</li>
+      <li><b>Oktal (base 8)</b>: menggunakan angka 0–7.</li>
+      <li><b>Heksadesimal (base 16)</b>: menggunakan angka 0–9 dan huruf A–F.</li>
+    </ul>
+
+    <h3>Konversi Desimal ke Biner</h3>
+    <input type="number" id="decimalInput" placeholder="Masukkan angka desimal">
+    <button onclick="convertToBinary()">Konversi</button>
+    <p>Hasil Biner: <span id="binaryResult">-</span></p>
+  </div>
+
+  <!-- Kalkulus -->
+  <div class="container" id="kalkulus">
+    <h2>Kalkulus</h2>
+    <p>Kalkulus adalah cabang matematika yang mempelajari perubahan. Ada tiga konsep utama:</p>
+    <ul>
+      <li><b>Limit</b>: nilai yang didekati oleh suatu fungsi.</li>
+      <li><b>Turunan</b>: laju perubahan suatu fungsi.</li>
+      <li><b>Integral</b>: kebalikan dari turunan, digunakan untuk menghitung luas di bawah kurva.</li>
+    </ul>
+
+    <h3>Kalkulator Turunan & Integral (Polinomial)</h3>
+    <input type="text" id="polyInput" placeholder="Masukkan polinomial, contoh: 2x^2+3x+1">
+    <br>
+    <button onclick="calculateDerivative()">Hitung Turunan</button>
+    <button onclick="calculateIntegral()">Hitung Integral</button>
+    <p>Hasil: <span id="calcResult">-</span></p>
+  </div>
+
+  <!-- Kontak -->
+  <div class="container" id="kontak">
+    <h2>Kontak</h2>
+    <p>Email: <a href="mailto:nazril.iqbal@gmail.com">nazril.iqbal@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/nazriliqbal" target="_blank">@nazriliqbal</a></p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 | Web Pribadi Muhammad Nazril Iqbal Arashid</p>
+  </footer>
+
+  <script>
+    // Konversi Desimal ke Biner
+    function convertToBinary() {
+      let decimal = document.getElementById("decimalInput").value;
+      if(decimal === "") {
+        alert("Masukkan angka desimal dulu!");
+        return;
+      }
+      let binary = Number(decimal).toString(2);
+      document.getElementById("binaryResult").innerText = binary;
+    }
+
+    // Parsing polinomial sederhana (hanya +, -, x^n)
+    function parsePolynomial(poly) {
+      poly = poly.replace(/-/g, "+-"); 
+      let terms = poly.split("+").filter(t => t !== "");
+      return terms.map(term => {
+        let match = term.match(/^([+-]?\d*)x\^?(\d*)$/);
+        if(match) {
+          let coef = match[1] === "" || match[1] === "+" ? 1 : (match[1] === "-" ? -1 : Number(match[1]));
+          let exp = match[2] === "" ? 1 : Number(match[2]);
+          return {coef, exp};
+        } else if(term.includes("x")) {
+          let coef = term.replace("x","");
+          coef = coef === "" || coef === "+" ? 1 : (coef === "-" ? -1 : Number(coef));
+          return {coef, exp: 1};
+        } else {
+          return {coef: Number(term), exp: 0};
+        }
+      });
+    }
+
+    // Hitung Turunan
+    function calculateDerivative() {
+      let poly = document.getElementById("polyInput").value;
+      let terms = parsePolynomial(poly);
+      let derivative = terms.map(t => {
+        if(t.exp === 0) return null;
+        return (t.coef * t.exp) + "x^" + (t.exp-1);
+      }).filter(x => x !== null).join(" + ");
+      document.getElementById("calcResult").innerText = derivative || "0";
+    }
+
+    // Hitung Integral
+    function calculateIntegral() {
+      let poly = document.getElementById("polyInput").value;
+      let terms = parsePolynomial(poly);
+      let integral = terms.map(t => {
+        return (t.coef/(t.exp+1)).toFixed(2) + "x^" + (t.exp+1);
+      }).join(" + ") + " + C";
+      document.getElementById("calcResult").innerText = integral;
+    }
+  </script>
+
+</body>
+</html>
